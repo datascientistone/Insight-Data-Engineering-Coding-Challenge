@@ -1,10 +1,7 @@
 import string
 import glob  # used for reading files from specific path
 import sys   # used to read command arg 
-#input="./wc_input/*"
-#output="./wc_result.txt"
-#input="F:/coding challenge/wc_input/*"
-#output="F:/coding challenge/wc_output/wc_result.txt"
+
 # get the input directory wc_input that contain text files
 input=str(sys.argv[1]+"/*")
 # get the output file path wc_result
@@ -31,9 +28,9 @@ for file in files:
                     wordcount[word]+=1
                 else: # case of first time word appearance
                     wordcount[word]=1
-        # open the wc_result text file in write access mode
-        with open (output, 'w') as fout:
-            # write  the words and number of occurences to the output file 
-            for word in sorted(wordcount):
-               fout.write(word +"\t" +str(wordcount[word])+ "\n")
+# open the wc_result text file in write access mode
+with open (output, 'w') as fout:
+   # write  the words and number of occurences to the output file 
+   for word in sorted(wordcount):
+      fout.write(word +"\t" +str(wordcount[word])+ "\n")
 

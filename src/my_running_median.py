@@ -5,8 +5,7 @@ import ntpath       # used to get the absolute file name
 from   operator import itemgetter # used to make operation on list
 import sys
 
-#input="F:/coding challenge/wc_input/*"
-#output="F:/coding challenge/wc_output/med_result.txt"
+
 # getting the input directory from the command args
 input=str(sys.argv[1]+"/*")
 # getting the output file name from the command args
@@ -31,26 +30,18 @@ num_words = []
 num_lines = 0
 median_values={}
 
-# parse all the files in the directory
+# parse all the files in the directory alphabatically
 for file in files:
      # open each file for read only access
      with open(file, 'r') as f:
          for line in f:
             words = line.split()
             num_lines+=1
-            
+            # store the number of words per line in the list num_words
             num_words.append(len(words))
             #calculate the median value for the n.words in the current line
             # with the previous lines
             median_values[num_lines]=statistics.median(num_words)
-            #special_character_map = dict.fromkeys(map(ord, string.punctuation))
-            #line=line.translate(special_character_map)
-            #words = line.lower().split()
-            #for word in words:
-                #if(word in wordcount):
-                    #wordcount[word]+=1
-                #else:
-                    #wordcount[word]=1
 
 # open the med_result text file in write access mode
 with open (output, 'w') as fout:
@@ -58,7 +49,3 @@ with open (output, 'w') as fout:
     for i in range(1,num_lines+1):
         fout.write (str(float(median_values[i])) + "\n")
             
-
-
-
-
