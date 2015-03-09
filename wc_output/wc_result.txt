@@ -1,0 +1,4 @@
+brave	3
+hello	6
+new	3
+world	6
